@@ -1,6 +1,7 @@
 
 #include <SoftwareSerial.h>
 SoftwareSerial mySerial(6,5); // RX, TX
+
 int motor1 = 3;
 int motor2 = 9;
 int motor3 = 10;
@@ -11,7 +12,6 @@ int speeds2=0;
 int speeds3=0;
 int speeds4=0;
 int speeds;
-
 void setup() {
  mySerial.begin(9600);
  Serial.begin(9600);
@@ -66,34 +66,34 @@ void loop() {
       delay(5);
     }else
     if (state == '7'){//tien
-      speeds1 =speeds1;
-      speeds2 =speeds2;
-      speeds3 =speeds3 - speeds3*0.1;
-      speeds4 =speeds4 - speeds4*0.1;
+      speeds1 =speeds1+5;
+      speeds2 =speeds2+5;
+      speeds3 =speeds3;
+      speeds4 =speeds4;
       state =0;
       delay(5);
     }else
     if (state == '8'){//lui
-      speeds3 =speeds3;
-      speeds4 =speeds4;
-      speeds1 =speeds1 - speeds1*0.1;
-      speeds2 =speeds2 - speeds2*0.1;
+      speeds1 =speeds1;
+      speeds2 =speeds2;
+      speeds3 =speeds3+5;
+      speeds4 =speeds4+5;
       state =0;
       delay(5);
     }else
     if (state == '9'){//trai
-      speeds1 =speeds1;
-      speeds4 =speeds4;
-      speeds3 =speeds3 - speeds3*0.1;
-      speeds2 =speeds2 - speeds2*0.1;
+      speeds1 =speeds1+5;
+      speeds2 =speeds2;
+      speeds3 =speeds3;
+      speeds4 =speeds4+5;
       state =0;
       delay(5);
     }else
-    if (state == '10'){//phai
-      speeds3 =speeds3;
-      speeds2 =speeds2;
-      speeds1 =speeds1 - speeds1*0.1;
-      speeds4 =speeds4 - speeds4*0.1;
+    if (state == '0'){//phai
+      speeds1 =speeds1;
+      speeds2 =speeds2+5;
+      speeds3 =speeds3+5;
+      speeds4 =speeds4;
       state =0;
       delay(5);
     }
